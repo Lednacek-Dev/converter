@@ -1,0 +1,22 @@
+{
+  "name": "currencyfisher-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "test": "bun test",
+    "test:watch": "bun test --watch",
+    "db:generate": "drizzle-kit generate",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "hono": "^4.6.0",
+    "drizzle-orm": "^0.38.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.0.0",
+    "drizzle-kit": "^0.30.0",
+    "typescript": "^5.7.0"
+  }
+}
