@@ -1,0 +1,22 @@
+FROM oven/bun:1 AS base
+WORKDIR /app
+
+# Install dependencies
+FROM base AS deps
+COPY package.json bun.lockb* ./
+RUN bun install --frozen-lockfile || bun install
+
+# Build stage
+FROM base AS runner
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+# Create data directory
+RUN mkdir -p /app/data
+
+ENV NODE_ENV=production
+ENV PORT=3000
+
+EXPOSE 3000
+
+CMD ["bun", "run", "src/index.ts"]
