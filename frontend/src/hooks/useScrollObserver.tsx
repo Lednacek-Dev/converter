@@ -1,12 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import styled from "styled-components";
 
-const ObserverElement = styled.div`
-  height: 30px;
-  margin-bottom: -30px;
-  pointer-events: none;
-`;
-
 export function useScrollObserver() {
   const [isScrolled, setIsScrolled] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -33,3 +27,11 @@ export function useScrollObserver() {
 
   return { isScrolled, ScrollObserver };
 }
+
+// Styled Components
+
+const ObserverElement = styled.div`
+  height: 30px;
+  margin-bottom: -30px;
+  pointer-events: none;
+`;

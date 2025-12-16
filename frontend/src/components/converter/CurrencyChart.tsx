@@ -23,84 +23,6 @@ ChartJS.register(
   Tooltip
 );
 
-const ChartCard = styled.div`
-  background: ${({ theme }) => theme.backgroundSecondary};
-`;
-
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 0.75rem 0;
-  margin-bottom: 0.5rem;
-
-  @media (max-width: 600px) {
-    padding: 0.5rem 0.5rem 0;
-  }
-`;
-
-const RateInfo = styled.div``;
-
-const CurrentRate = styled.div`
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-`;
-
-const RateLabel = styled.div`
-  font-size: 0.75rem;
-  color: ${({ theme }) => theme.textSecondary};
-  margin-top: 0.125rem;
-`;
-
-const ToggleGroup = styled.div`
-  display: flex;
-  gap: 0.25rem;
-  background: ${({ theme }) => theme.backgroundSecondary};
-  border-radius: 8px;
-  padding: 0.125rem;
-`;
-
-const ToggleButton = styled.button<{ $isActive: boolean }>`
-  padding: 0.375rem 0.75rem;
-  border: none;
-  border-radius: 6px;
-  background: ${({ $isActive, theme }) =>
-    $isActive ? theme.cardBackground : "transparent"};
-  color: ${({ $isActive, theme }) =>
-    $isActive ? theme.text : theme.textSecondary};
-  font-size: 0.75rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-
-  &:hover {
-    color: ${({ theme }) => theme.text};
-  }
-`;
-
-const ChartWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-
-  @media (max-width: 600px) {
-    height: 160px;
-  }
-`;
-
-const LoadingOverlay = styled.div`
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: ${({ theme }) => theme.backgroundSecondary};
-  color: ${({ theme }) => theme.textSecondary};
-  font-size: 0.8125rem;
-`;
-
 interface CurrencyChartProps {
   currencyCode: string;
   rate: number;
@@ -286,3 +208,83 @@ export function CurrencyChart({ currencyCode, rate, amount }: CurrencyChartProps
     </ChartCard>
   );
 }
+
+// Styled Components
+
+const ChartCard = styled.div`
+  background: ${({ theme }) => theme.backgroundSecondary};
+`;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0.75rem 0;
+  margin-bottom: 0.5rem;
+
+  @media (max-width: 600px) {
+    padding: 0.5rem 0.5rem 0;
+  }
+`;
+
+const RateInfo = styled.div``;
+
+const CurrentRate = styled.div`
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+`;
+
+const RateLabel = styled.div`
+  font-size: 0.75rem;
+  color: ${({ theme }) => theme.textSecondary};
+  margin-top: 0.125rem;
+`;
+
+const ToggleGroup = styled.div`
+  display: flex;
+  gap: 0.25rem;
+  background: ${({ theme }) => theme.backgroundSecondary};
+  border-radius: 8px;
+  padding: 0.125rem;
+`;
+
+const ToggleButton = styled.button<{ $isActive: boolean }>`
+  padding: 0.375rem 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background: ${({ $isActive, theme }) =>
+    $isActive ? theme.cardBackground : "transparent"};
+  color: ${({ $isActive, theme }) =>
+    $isActive ? theme.text : theme.textSecondary};
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    color: ${({ theme }) => theme.text};
+  }
+`;
+
+const ChartWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+  @media (max-width: 600px) {
+    height: 160px;
+  }
+`;
+
+const LoadingOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${({ theme }) => theme.backgroundSecondary};
+  color: ${({ theme }) => theme.textSecondary};
+  font-size: 0.8125rem;
+`;

@@ -3,21 +3,6 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import styled from "styled-components";
 
-const ParticlesWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100dvh;
-  pointer-events: none;
-  z-index: 0;
-
-  #snowfall {
-    width: 100%;
-    height: 100%;
-  }
-`;
-
 export function Snowfall() {
   const [init, setInit] = useState(false);
 
@@ -88,3 +73,20 @@ export function Snowfall() {
     </ParticlesWrapper>
   );
 }
+
+// Styled Components
+
+const ParticlesWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  pointer-events: none;
+  z-index: 0;
+
+  #snowfall {
+    width: 100%;
+    height: 100%;
+  }
+`;

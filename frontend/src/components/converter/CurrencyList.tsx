@@ -14,118 +14,6 @@ import {
   AppExpandIcon,
 } from "../common";
 
-const List = styled.div`
-  flex: 1;
-  overflow-y: auto;
-`;
-
-const CurrencyItemWrapper = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.border};
-
-  &:last-child {
-    border-bottom: none;
-  }
-`;
-
-const CurrencyItemHeader = styled.button<{ $isExpanded: boolean }>`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 1rem 1.25rem;
-  border: none;
-  background: ${({ $isExpanded, theme }) =>
-    $isExpanded ? theme.backgroundSecondary : "transparent"};
-  color: ${({ theme }) => theme.text};
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.15s;
-  gap: 0.875rem;
-
-  &:hover {
-    background: ${({ theme }) => theme.backgroundSecondary};
-  }
-
-  @media (max-width: 600px) {
-    padding: 0.75rem;
-    gap: 0.5rem;
-  }
-`;
-
-const CurrencyFlag = styled.span`
-  font-size: 1.5rem;
-  line-height: 1;
-
-  @media (max-width: 600px) {
-    font-size: 1.25rem;
-  }
-`;
-
-const CurrencyInfo = styled.div`
-  flex: 1;
-  min-width: 0;
-`;
-
-const CurrencyCode = styled.div`
-  font-weight: 700;
-  font-size: 0.9375rem;
-  margin-bottom: 0.125rem;
-  letter-spacing: -0.01em;
-`;
-
-const CurrencyName = styled.div`
-  font-size: 0.75rem;
-  color: ${({ theme }) => theme.textSecondary};
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  @media (max-width: 600px) {
-    display: none;
-  }
-`;
-
-const RightSection = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-
-  @media (max-width: 600px) {
-    gap: 0.5rem;
-  }
-`;
-
-const ConvertedValue = styled.div`
-  text-align: right;
-`;
-
-const Value = styled.div`
-  font-weight: 700;
-  font-size: 1rem;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
-`;
-
-const RateRow = styled.div`
-  font-size: 0.6875rem;
-  color: ${({ theme }) => theme.textSecondary};
-  margin-top: 0.125rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
-
-  @media (max-width: 600px) {
-    display: none;
-  }
-`;
-
-const ChartWrapper = styled.div`
-  padding: 0.75rem;
-
-  @media (max-width: 600px) {
-    padding: 0.5rem;
-  }
-`;
-
 const COUNTRY_FLAGS: Record<string, string> = {
   EUR: "🇪🇺", USD: "🇺🇸", GBP: "🇬🇧", CHF: "🇨🇭", JPY: "🇯🇵",
   AUD: "🇦🇺", CAD: "🇨🇦", PLN: "🇵🇱", HUF: "🇭🇺", RON: "🇷🇴",
@@ -288,3 +176,117 @@ function CurrencyTrend({ currencyCode }: { currencyCode: string }) {
     />
   );
 }
+
+// Styled Components
+
+const List = styled.div`
+  flex: 1;
+  overflow-y: auto;
+`;
+
+const CurrencyItemWrapper = styled.div`
+  border-bottom: 1px solid ${({ theme }) => theme.border};
+
+  &:last-child {
+    border-bottom: none;
+  }
+`;
+
+const CurrencyItemHeader = styled.button<{ $isExpanded: boolean }>`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: none;
+  background: ${({ $isExpanded, theme }) =>
+    $isExpanded ? theme.backgroundSecondary : "transparent"};
+  color: ${({ theme }) => theme.text};
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+  gap: 0.875rem;
+
+  &:hover {
+    background: ${({ theme }) => theme.backgroundSecondary};
+  }
+
+  @media (max-width: 600px) {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+`;
+
+const CurrencyFlag = styled.span`
+  font-size: 1.5rem;
+  line-height: 1;
+
+  @media (max-width: 600px) {
+    font-size: 1.25rem;
+  }
+`;
+
+const CurrencyInfo = styled.div`
+  flex: 1;
+  min-width: 0;
+`;
+
+const CurrencyCode = styled.div`
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin-bottom: 0.125rem;
+  letter-spacing: -0.01em;
+`;
+
+const CurrencyName = styled.div`
+  font-size: 0.75rem;
+  color: ${({ theme }) => theme.textSecondary};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
+
+const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  @media (max-width: 600px) {
+    gap: 0.5rem;
+  }
+`;
+
+const ConvertedValue = styled.div`
+  text-align: right;
+`;
+
+const Value = styled.div`
+  font-weight: 700;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+`;
+
+const RateRow = styled.div`
+  font-size: 0.6875rem;
+  color: ${({ theme }) => theme.textSecondary};
+  margin-top: 0.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
+
+const ChartWrapper = styled.div`
+  padding: 0.75rem;
+
+  @media (max-width: 600px) {
+    padding: 0.5rem;
+  }
+`;

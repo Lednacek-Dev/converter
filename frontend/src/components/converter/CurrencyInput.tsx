@@ -1,5 +1,38 @@
 import styled from "styled-components";
 
+interface CurrencyInputProps {
+  value: number;
+  onChange: (value: number) => void;
+  currencyCode?: string;
+  flag?: string;
+  placeholder?: string;
+}
+
+export function CurrencyInput({
+  value,
+  onChange,
+  currencyCode = "CZK",
+  flag = "🇨🇿",
+  placeholder = "0"
+}: CurrencyInputProps) {
+  return (
+    <InputWrapper>
+      <Input
+        type="number"
+        value={value || ""}
+        onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
+        placeholder={placeholder}
+      />
+      <CurrencyBadge>
+        <Flag>{flag}</Flag>
+        {currencyCode}
+      </CurrencyBadge>
+    </InputWrapper>
+  );
+}
+
+// Styled Components
+
 const InputWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -59,34 +92,3 @@ const CurrencyBadge = styled.div`
 const Flag = styled.span`
   font-size: 1.125rem;
 `;
-
-interface CurrencyInputProps {
-  value: number;
-  onChange: (value: number) => void;
-  currencyCode?: string;
-  flag?: string;
-  placeholder?: string;
-}
-
-export function CurrencyInput({
-  value,
-  onChange,
-  currencyCode = "CZK",
-  flag = "🇨🇿",
-  placeholder = "0"
-}: CurrencyInputProps) {
-  return (
-    <InputWrapper>
-      <Input
-        type="number"
-        value={value || ""}
-        onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
-        placeholder={placeholder}
-      />
-      <CurrencyBadge>
-        <Flag>{flag}</Flag>
-        {currencyCode}
-      </CurrencyBadge>
-    </InputWrapper>
-  );
-}

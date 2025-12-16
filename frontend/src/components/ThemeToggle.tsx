@@ -2,6 +2,18 @@ import styled from "styled-components";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "../styles/ThemeContext";
 
+export function ThemeToggle() {
+  const { mode, toggleTheme } = useTheme();
+
+  return (
+    <Button onClick={toggleTheme} aria-label="Toggle theme">
+      {mode === "light" ? <Moon size={18} /> : <Sun size={18} />}
+    </Button>
+  );
+}
+
+// Styled Components
+
 const Button = styled.button`
   display: flex;
   align-items: center;
@@ -20,13 +32,3 @@ const Button = styled.button`
     color: ${({ theme }) => theme.text};
   }
 `;
-
-export function ThemeToggle() {
-  const { mode, toggleTheme } = useTheme();
-
-  return (
-    <Button onClick={toggleTheme} aria-label="Toggle theme">
-      {mode === "light" ? <Moon size={18} /> : <Sun size={18} />}
-    </Button>
-  );
-}

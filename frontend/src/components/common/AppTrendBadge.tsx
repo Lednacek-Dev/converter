@@ -3,6 +3,25 @@ import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 
 type TrendDirection = "up" | "down" | "neutral";
 
+interface TrendBadgeProps {
+  direction: TrendDirection;
+  percent: number | null;
+  iconSize?: number;
+}
+
+export function AppTrendBadge({ direction, percent, iconSize = 12 }: TrendBadgeProps) {
+  const Icon = direction === "up" ? TrendingUp : direction === "down" ? TrendingDown : Minus;
+
+  return (
+    <Badge $trend={direction}>
+      <Icon size={iconSize} />
+      {percent !== null ? `${percent.toFixed(1)}%` : "--%"}
+    </Badge>
+  );
+}
+
+// Styled Components
+
 const Badge = styled.div<{ $trend: TrendDirection }>`
   display: flex;
   align-items: center;
@@ -24,20 +43,3 @@ const Badge = styled.div<{ $trend: TrendDirection }>`
       ? theme.danger
       : theme.textSecondary};
 `;
-
-interface TrendBadgeProps {
-  direction: TrendDirection;
-  percent: number | null;
-  iconSize?: number;
-}
-
-export function AppTrendBadge({ direction, percent, iconSize = 12 }: TrendBadgeProps) {
-  const Icon = direction === "up" ? TrendingUp : direction === "down" ? TrendingDown : Minus;
-
-  return (
-    <Badge $trend={direction}>
-      <Icon size={iconSize} />
-      {percent !== null ? `${percent.toFixed(1)}%` : "--%"}
-    </Badge>
-  );
-}
