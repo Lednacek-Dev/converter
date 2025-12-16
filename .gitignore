@@ -1,0 +1,43 @@
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Database
+*.db
+*.db-journal
+*.db-wal
+/data/
+/backend/data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Vite generated files
+vite.config.js
+vite.config.d.ts
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Test coverage
+coverage
+
+# Bun
+*.lockb
