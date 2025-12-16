@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent, waitFor } from "../../../test/test-utils";
+import { render, screen, waitFor } from "../../../test/test-utils";
 import { CurrencyList } from "../../../components/converter/CurrencyList";
 
 // Mock the data hooks

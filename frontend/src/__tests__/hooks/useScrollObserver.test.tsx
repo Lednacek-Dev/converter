@@ -23,6 +23,6 @@ describe("useScrollObserver", () => {
     const { ScrollObserver } = result.current;
 
     // Should not throw
-    expect(() => ScrollObserver({})).not.toThrow();
+    expect(() => ScrollObserver()).not.toThrow();
   });
 });
